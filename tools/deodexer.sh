@@ -1,11 +1,11 @@
 #########################################################################################
 # Deodex GalaxyS' applications and framework (Only for FroYo)				#
 # You must let this script know whether you're deodexing files from I9000 or Eclair	#
-# USAGE = deodexer.sh [I or M]     (I = I9000, M = M110S)				#
+# USAGE = deodexer.sh [I or M]     (I = I9000, M = M110S, U = 8230)				#
 #########################################################################################
 
 if test "$1" = "" ; then
-	echo "***** You must choose either I or M for the first argument *****"
+	echo "***** You must choose either I, M or U for the first argument *****"
 	exit
 fi
 
@@ -26,6 +26,8 @@ do_baksmali_apk() {
 		$tools/baksmali -d $framework_path -c :com.sec.android.solunconverter.jar:com.samsung.device.jar:framework-tests.jar:seccamera.jar:sechardware.jar:twframework.jar:libSECDMF.jar:javax.obex.jar:com.google.android.maps.jar -x $2.odex
 	elif test "$1" = "I" -o "$1" = "i" ; then
 		$tools/baksmali -d $framework_path -c :com.samsung.device.jar:seccamera.jar:sechardware.jar:twframework.jar:javax.obex.jar:com.google.android.maps.jar -x $2.odex
+	elif test "$1" = "U" -o "$1" = "u" ; then
+		$tools/baksmali -d $framework_path -c :com.huawei.android.launcher.jar:javax.obex.jar:com.google.android.gtalkservice.jar:com.google.android.maps.jar -x $2.odex
 	fi
 }
 
