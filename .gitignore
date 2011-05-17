@@ -1,4 +1,5 @@
 #
 # Ignore everything in the ROM directory 
 #
-ROM/*
+deodexed_roms/
+ROM/
